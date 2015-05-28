@@ -1,45 +1,38 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en-us">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Gradle-packer-plugin : Android Multi Packer Gradle Plugin">
-
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Gradle-packer-plugin</title>
+    <meta charset="UTF-8">
+    <title>Gradle-packer-plugin by mcxiaoke</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
-
   <body>
+    <section class="page-header">
+      <h1 class="project-name">Gradle-packer-plugin</h1>
+      <h2 class="project-tagline">Android Multi Packer Gradle Plugin</h2>
+      <a href="https://github.com/mcxiaoke/gradle-packer-plugin" class="btn">View on GitHub</a>
+      <a href="https://github.com/mcxiaoke/gradle-packer-plugin/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mcxiaoke/gradle-packer-plugin/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mcxiaoke/gradle-packer-plugin">View on GitHub</a>
-
-          <h1 id="project_title">Gradle-packer-plugin</h1>
-          <h2 id="project_tagline">Android Multi Packer Gradle Plugin</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/mcxiaoke/gradle-packer-plugin/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/mcxiaoke/gradle-packer-plugin/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h1>
+    <section class="main-content">
+      <h1>
 <a id="android多渠道打包工具gradle插件" class="anchor" href="#android%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7gradle%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Android多渠道打包工具Gradle插件</h1>
 
 <h2>
 <a id="最新版本" class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>最新版本</h2>
 
+<p><a href="http://search.maven.org/#artifactdetails%7Ccom.mcxiaoke.gradle%7Cpacker%7C1.0.4%7Cjar"><img src="http://img.shields.io/badge/2015.05.18-com.mcxiaoke.gradle:packer:1.0.4-brightgreen.svg" alt="Maven Central"></a> </p>
+
 <ul>
-<li>
-<a href="http://search.maven.org/#artifactdetails%7Ccom.mcxiaoke.gradle%7Cpacker%7C1.0.0%7Cjar"><img src="http://img.shields.io/badge/2014.12.20-com.mcxiaoke.gradle:packer:1.0.0-brightgreen.svg" alt="Maven Central"></a> </li>
+<li>2014.12.20 发布1.0.0版，支持渠道打包和版本号自增等功能</li>
+<li>2014.12.24 发布1.0.1版，完善market文件异常处理</li>
+<li>2015.02.12 发布1.0.2版，检查manifestMatcher配置</li>
+<li>2015.03.24 发布1.0.3版，版本号自增与versionName和buildType无关</li>
+<li>2015.05.18 发布1.0.4版，移除Android插件版本检查，支持最新版本</li>
 </ul>
 
 <h2>
@@ -56,20 +49,6 @@
 <p><strong>gradle-packer-plugin</strong> 库路径： <code>com.mcxiaoke.gradle:packer:1.0.+</code> 简短名：<code>packer</code>，可以在项目的 <code>build.gradle</code> 中指定使用</p>
 
 <h2>
-<a id="参与开发" class="anchor" href="#%E5%8F%82%E4%B8%8E%E5%BC%80%E5%8F%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>参与开发</h2>
-
-<p><code>plugin</code> 目录是插件的源代码，用 <code>Groovy</code> 语言编写，项目 <code>sample</code> 目录是一个完整的Andoid项目示例，在项目根目录有几个脚本可以用于测试：</p>
-
-<ul>
-<li>
-<strong>deploy-local.sh</strong> 部署插件到本地的 <code>/tmp/repo/</code> 目录，方便即时测试</li>
-<li>
-<strong>test-build.sh</strong> 部署并测试插件是否有错误，测试build版本号自增功能</li>
-<li>
-<strong>test-market.sh</strong> 部署并测试插件是否有错误，测试多渠道打包功能 </li>
-</ul>
-
-<h2>
 <a id="使用方法" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用方法</h2>
 
 <h4>
@@ -82,7 +61,7 @@ buildscript {
     }
 
     dependencies{
-        classpath <span class="pl-s1"><span class="pl-pds">'</span>com.mcxiaoke.gradle:packer:1.0.+<span class="pl-pds">'</span></span>
+        classpath <span class="pl-s"><span class="pl-pds">'</span>com.mcxiaoke.gradle:packer:1.0.+<span class="pl-pds">'</span></span>
     }
 }  </pre></div>
 
@@ -90,22 +69,52 @@ buildscript {
 <a id="修改android项目的-buildgradle-" class="anchor" href="#%E4%BF%AE%E6%94%B9android%E9%A1%B9%E7%9B%AE%E7%9A%84-buildgradle-" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改Android项目的 <code>build.gradle</code> :</h4>
 
 <div class="highlight highlight-groovy"><pre>
-apply <span class="pl-c1">plugin</span>: <span class="pl-s1"><span class="pl-pds">'</span>packer<span class="pl-pds">'</span></span>  </pre></div>
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>packer<span class="pl-pds">'</span></span>  </pre></div>
 
 <h3>
 <a id="多渠道打包" class="anchor" href="#%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>多渠道打包</h3>
 
-<p>需要在命令行指定 -Pmarket=yourMarketFileName属性，market是你的渠道名列表，一行一个渠道，名字和注释用#号分割，举例： <code>Google_Play#build for google play store</code> </p>
+<p>需要在命令行指定 -Pmarket=yourMarketFileName属性，market是你的渠道名列表文件名，market文件是基于<strong>项目根目录</strong>的 <code>相对路径</code> ，假设你的项目位于 <code>~/github/myapp</code> 你的market文件位于 <code>~/github/myapp/config/markets.txt</code> 那么参数应该是 <code>-Pmarket=config/markets.txt</code>，一般建议直接放在项目根目录，如果market文件参数错误或者文件不存在会抛出异常</p>
+
+<p>渠道名列表文件是纯文本文件，每行一个渠道号，列表解析的时候会自动忽略空白行，但是格式不规范会报错，渠道名和注释之间用 <code>#</code> 号分割开，行示例：</p>
+
+<pre><code> Google_Play#play store market
+ Gradle_Test#test
+ SomeMarket#some market
+</code></pre>
+
+<p>渠道打包的命令行参数格式示例（在项目根目录执行）：  </p>
+
+<div class="highlight highlight-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease</pre></div>
+
+<h3>
+<a id="windows系统" class="anchor" href="#windows%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows系统</h3>
+
+<ul>
+<li>如果你是在windows系统下使用，需要下载 <a href="http://www.gradle.org/docs/current/userguide/gradle_wrapper.html">Gradle</a>，设置 <strong>GRADLE_HOME</strong> 环境变量，并且将Gradle的 <strong>bin</strong> 目录添加到环境变量PATH，然后将命令行中的 <code>./gradlew</code> 替换为 <code>gradle.bat</code>
+</li>
+<li>如果同时还需要使用gradlew，你需要给你的项目配置使用gradle wrapper，在设置好了gradle之后，在你的项目根目录命令行输入 <code>gradle.bat wrapper</code> 然后就可以使用 <code>gradlew.bat</code> 了</li>
+<li>Windows系统下的命令行参考：
+
+<ul>
+<li>使用gradle： <code>gradle.bat clean assembleRelease</code>
+</li>
+<li>使用gradle wrapper： <code>gradlew.bat clean assembleRelease</code>
+</li>
+</ul>
+</li>
+</ul>
 
 <h3>
 <a id="文件名格式" class="anchor" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件名格式</h3>
 
-<p>可以使用 <code>archiveNameFormat</code> 自定义渠道打包输出的APK文件名格式，默认格式是 <code>${appPkg}-${flavorName}-${buildType}-v${versionName}-${versionCode}</code> 举例：假如你的App包名是  <code>com.your.company</code> ，渠道名是 <code>Google_Play</code> ，<code>buildType</code> 是 <code>release</code> ，<code>versionName</code> 是 <code>2.1.15</code> ，<code>versionCode</code> 是 <code>200115</code> ，那么生成的APK的文件名是 <code>com.your.company-Google_Player-release-2.1.15-20015.apk</code> </p>
+<p>可以使用 <code>archiveNameFormat</code> 自定义渠道打包输出的APK文件名格式，默认格式是 </p>
 
-<h3>
-<a id="渠道列表格式" class="anchor" href="#%E6%B8%A0%E9%81%93%E5%88%97%E8%A1%A8%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>渠道列表格式</h3>
+<p><code>${appPkg}-${flavorName}-${buildType}-v${versionName}-${versionCode}</code> </p>
 
-<p>渠道名列表文件是纯文本文件，每行一个渠道号，渠道名和注释之间用 <code>#</code> 号分割开，行示例： <code>Google_Play#play store market</code>，会自动忽略空白行，格式不规范会报错</p>
+<p>举例：假如你的App包名是  <code>com.your.company</code> ，渠道名是 <code>Google_Play</code> ，<code>buildType</code> 是 <code>release</code> ，<code>versionName</code> 是 <code>2.1.15</code> ，<code>versionCode</code> 是 <code>200115</code> ，那么生成的APK的文件名是 </p>
+
+<p><code>com.your.company-Google_Player-release-2.1.15-20015.apk</code> </p>
 
 <h3>
 <a id="版本号自增" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号自增</h3>
@@ -126,7 +135,7 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s1"><span class="pl-pds
 <li>
 <em>appName</em> - App模块名字</li>
 <li>
-<em>appPkg</em> - App包名 (<code>applicationId</code>或<code>packageName</code>)</li>
+<em>appPkg</em> - <code>applicationId</code> (App包名packageName)</li>
 <li>
 <em>buildType</em> - <code>buildType</code> (release/debug/beta等)</li>
 <li>
@@ -139,7 +148,7 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s1"><span class="pl-pds
 <em>buildTime</em> - <code>buildTime</code> (编译构建日期时间)</li>
 </ul>
 </li>
-<li><p><strong>manifestMatcher</strong> 指定渠道打包需要修改的AndroidManifest.xml的meta-data的项名称，列表类型，举例： <code>['UMENG_CHANNEL', 'Promotion_Market']</code>，注意：需要同时在命令行使用 <code>-Pmarket=yourMarketFileName</code> 指定market属性多渠道打包才会生效 </p></li>
+<li><p><strong>manifestMatcher</strong> 指定渠道打包需要修改的AndroidManifest.xml的meta-data的项名称，列表类型，举例： <code>['UMENG_CHANNEL', 'Promotion_Market']</code>，注意：需要同时在命令行使用 <code>-Pmarket=yourMarketFileName</code> 指定market属性多渠道打包才会生效，如果没有配置就使用多渠道打包，将会抛出异常 </p></li>
 <li><p><strong>buildNumberAuto</strong> - 布尔值，是否使用自增版本号功能 设为 <code>true</code> 为使用插件提供的自增build版本号功能，该功能会在项目目录生成一个 <code>packer.properties</code> 文件，建议加入到 <code>.gitignore</code> 中，注意：该功能不会应用于多渠道打包生成的APK，不会影响渠道打包</p></li>
 <li><p><strong>buildNumberTypeMatcher</strong> - 指定需要使用自增版本号的buildType，列表类型，举例： <code>['release', 'beta']</code> 默认是全部</p></li>
 </ul>
@@ -166,7 +175,7 @@ packer {
     <span class="pl-c">// 指定渠道打包输出文件名格式</span>
     <span class="pl-c">// archiveNameFormat = ''</span>
     <span class="pl-c">// 指定渠道打包需要修改的AndroidManifest文件项</span>
-    manifestMatcher <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>UMENG_CHANNEL<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Promotion_Market<span class="pl-pds">'</span></span>]
+    manifestMatcher <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>UMENG_CHANNEL<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>Promotion_Market<span class="pl-pds">'</span></span>]
 
 }
 </pre></div>
@@ -175,10 +184,13 @@ packer {
 <li>假设渠道列表文件位于项目根目录，文件名为 <code>markets.txt</code> ，在项目根目录打开shell运行命令：</li>
 </ul>
 
-<div class="highlight highlight-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease</pre></div>
+<div class="highlight highlight-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease
+// Windows系统下替换为：
+gradle.bat -Pmarket=markets.txt clean archiveApkRelease
+// 或
+gradlew.bat -Pmarket=markets.txt clean archiveApkRelease</pre></div>
 
-<pre><code>如果没有错误，打包完成后你可以在 `${项目根目录}/build/archives/` 目录找到最终的渠道包。说明：渠道打包的Gradle Task名字是 `archiveApk${buildType}` buildType一般是release，也可以是你自己指定的beta或者someOtherType，使用时首字母需要大写，例如release的渠道包任务名是 `archiveApkRelease`
-</code></pre>
+<p>如果没有错误，打包完成后你可以在 <code>${项目根目录}/build/archives/</code> 目录找到最终的渠道包。说明：渠道打包的Gradle Task名字是 <code>archiveApk${buildType}</code> buildType一般是release，也可以是你自己指定的beta或者someOtherType，使用时首字母需要大写，例如release的渠道包任务名是 <code>archiveApkRelease</code>，beta的渠道包任务名是 <code>archiveApkBeta</code>，其它的以此类推</p>
 
 <h3>
 <a id="版本号自增-1" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号自增</h3>
@@ -196,7 +208,7 @@ packer {
     <span class="pl-c">// 指定是否使用build版本号自增</span>
     buildNumberAuto <span class="pl-k">=</span> <span class="pl-c1">true</span>
     <span class="pl-c">// 指定使用版本号自增的buildType，默认是全部</span>
-    buildNumberTypeMatcher <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>release<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>beta<span class="pl-pds">'</span></span>]
+    buildNumberTypeMatcher <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>release<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>beta<span class="pl-pds">'</span></span>]
 
 }
 </pre></div>
@@ -216,9 +228,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath <span class="pl-s1"><span class="pl-pds">'</span>com.android.tools.build:gradle:1.0.0<span class="pl-pds">'</span></span>
+        classpath <span class="pl-s"><span class="pl-pds">'</span>com.android.tools.build:gradle:1.0.0<span class="pl-pds">'</span></span>
         <span class="pl-c">// `添加packer插件依赖`</span>
-        classpath <span class="pl-s1"><span class="pl-pds">'</span>com.mcxiaoke.gradle:packer:1.0.0<span class="pl-pds">'</span></span>
+        classpath <span class="pl-s"><span class="pl-pds">'</span>com.mcxiaoke.gradle:packer:1.0.0<span class="pl-pds">'</span></span>
     }
 }
 
@@ -226,43 +238,43 @@ repositories {
     mavenCentral()
 }
 
-apply <span class="pl-c1">plugin</span>: <span class="pl-s1"><span class="pl-pds">'</span>com.android.application<span class="pl-pds">'</span></span>
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>com.android.application<span class="pl-pds">'</span></span>
 <span class="pl-c">// 建议放在 `com.android.application` 下面  </span>
 <span class="pl-c">// `使用 apply plugin使用packer插件`  </span>
-apply <span class="pl-c1">plugin</span>: <span class="pl-s1"><span class="pl-pds">'</span>packer<span class="pl-pds">'</span></span>
+apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>packer<span class="pl-pds">'</span></span>
 
 packer {
     <span class="pl-c">// 指定渠道打包输出目录</span>
-    archiveOutput <span class="pl-k">=</span> file(<span class="pl-k">new</span> <span class="pl-st">File</span>(project<span class="pl-k">.</span>rootProject<span class="pl-k">.</span>buildDir<span class="pl-k">.</span>path, <span class="pl-s1"><span class="pl-pds">"</span>apks<span class="pl-pds">"</span></span>))
+    archiveOutput <span class="pl-k">=</span> file(<span class="pl-k">new</span> <span class="pl-k">File</span>(project<span class="pl-k">.</span>rootProject<span class="pl-k">.</span>buildDir<span class="pl-k">.</span>path, <span class="pl-s"><span class="pl-pds">"</span>apks<span class="pl-pds">"</span></span>))
     <span class="pl-c">// 指定渠道打包输出文件名格式</span>
-    archiveNameFormat <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
+    archiveNameFormat <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>
     <span class="pl-c">// 指定渠道打包需要修改的AndroidManifest文件项</span>
-    manifestMatcher <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>UMENG_CHANNEL<span class="pl-pds">'</span></span>,<span class="pl-s1"><span class="pl-pds">'</span>Promotion_Market<span class="pl-pds">'</span></span>]
+    manifestMatcher <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>UMENG_CHANNEL<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>Promotion_Market<span class="pl-pds">'</span></span>]
     <span class="pl-c">// 指定是否使用build版本号自增</span>
     buildNumberAuto <span class="pl-k">=</span> <span class="pl-c1">true</span>
     <span class="pl-c">// 指定使用版本号自增的buildType，默认是全部</span>
-    buildNumberTypeMatcher <span class="pl-k">=</span> [<span class="pl-s1"><span class="pl-pds">'</span>release<span class="pl-pds">'</span></span>, <span class="pl-s1"><span class="pl-pds">'</span>beta<span class="pl-pds">'</span></span>]
+    buildNumberTypeMatcher <span class="pl-k">=</span> [<span class="pl-s"><span class="pl-pds">'</span>release<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>beta<span class="pl-pds">'</span></span>]
 
 }
 
 android {
     compileSdkVersion <span class="pl-c1">21</span>
-    buildToolsVersion <span class="pl-s1"><span class="pl-pds">"</span>21.1.1<span class="pl-pds">"</span></span>
+    buildToolsVersion <span class="pl-s"><span class="pl-pds">"</span>21.1.1<span class="pl-pds">"</span></span>
 
     defaultConfig {
-        applicationId <span class="pl-s1"><span class="pl-pds">"</span>com.mcxiaoke.packer.sample<span class="pl-pds">"</span></span>
+        applicationId <span class="pl-s"><span class="pl-pds">"</span>com.mcxiaoke.packer.sample<span class="pl-pds">"</span></span>
         minSdkVersion <span class="pl-c1">15</span>
         targetSdkVersion <span class="pl-c1">21</span>
         versionCode <span class="pl-c1">12345</span>
-        versionName <span class="pl-s1"><span class="pl-pds">"</span>1.2.3<span class="pl-pds">"</span></span>
+        versionName <span class="pl-s"><span class="pl-pds">"</span>1.2.3<span class="pl-pds">"</span></span>
     }
 
     signingConfigs {
         release {
-            storeFile file(<span class="pl-s1"><span class="pl-pds">"</span>android.keystore<span class="pl-pds">"</span></span>)
-            storePassword <span class="pl-s1"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
-            keyAlias <span class="pl-s1"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
-            keyPassword <span class="pl-s1"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
+            storeFile file(<span class="pl-s"><span class="pl-pds">"</span>android.keystore<span class="pl-pds">"</span></span>)
+            storePassword <span class="pl-s"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
+            keyAlias <span class="pl-s"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
+            keyPassword <span class="pl-s"><span class="pl-pds">"</span>android<span class="pl-pds">"</span></span>
         }
     }
 
@@ -283,11 +295,25 @@ android {
 }
 
 dependencies {
-    compile fileTree(<span class="pl-c1">dir</span>: <span class="pl-s1"><span class="pl-pds">'</span>libs<span class="pl-pds">'</span></span>, <span class="pl-c1">include</span>: [<span class="pl-s1"><span class="pl-pds">'</span>*.jar<span class="pl-pds">'</span></span>])
-    compile <span class="pl-s1"><span class="pl-pds">'</span>com.android.support:support-v4:21.0.2<span class="pl-pds">'</span></span>
+    compile fileTree(<span class="pl-c1">dir</span>: <span class="pl-s"><span class="pl-pds">'</span>libs<span class="pl-pds">'</span></span>, <span class="pl-c1">include</span>: [<span class="pl-s"><span class="pl-pds">'</span>*.jar<span class="pl-pds">'</span></span>])
+    compile <span class="pl-s"><span class="pl-pds">'</span>com.android.support:support-v4:21.0.2<span class="pl-pds">'</span></span>
 }
 
 </pre></div>
+
+<h2>
+<a id="参与开发" class="anchor" href="#%E5%8F%82%E4%B8%8E%E5%BC%80%E5%8F%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>参与开发</h2>
+
+<p><code>plugin</code> 目录是插件的源代码，用 <code>Groovy</code> 语言编写，项目 <code>sample</code> 目录是一个完整的Andoid项目示例，在项目根目录有几个脚本可以用于测试：</p>
+
+<ul>
+<li>
+<strong>deploy-local.sh</strong> 部署插件到本地的 <code>/tmp/repo/</code> 目录，方便即时测试</li>
+<li>
+<strong>test-build.sh</strong> 部署并测试插件是否有错误，测试build版本号自增功能</li>
+<li>
+<strong>test-market.sh</strong> 部署并测试插件是否有错误，测试多渠道打包功能 </li>
+</ul>
 
 <h2>
 <a id="感谢" class="anchor" href="#%E6%84%9F%E8%B0%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>感谢</h2>
@@ -311,18 +337,18 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 </code></pre>
-      </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Gradle-packer-plugin maintained by <a href="https://github.com/mcxiaoke">mcxiaoke</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+<p>I</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mcxiaoke/gradle-packer-plugin">Gradle-packer-plugin</a> is maintained by <a href="https://github.com/mcxiaoke">mcxiaoke</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
       </footer>
-    </div>
 
-    
+    </section>
 
+  
   </body>
 </html>
+
