@@ -1,0 +1,98 @@
+buildscript {
+    repositories {
+        maven { url '/tmp/repo/' }
+        mavenCentral()
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.mcxiaoke.gradle:modifier:0.9.0-SNAPSHOT'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'modifier'
+
+modifier {
+    archiveOutput = file(new File(project.rootProject.buildDir.path, "myapks"))
+}
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "22.0.1"
+
+    defaultConfig {
+        applicationId "com.mcxiaoke.packer.sample"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 12345
+        versionName "1.2.3"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("android.keystore")
+            storePassword "android"
+            keyAlias "android"
+            keyPassword "android"
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+        }
+
+        //someType {
+        //    minifyEnabled false
+        //    debuggable true
+        //}
+
+        beta {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            debuggable true
+        }
+
+    }
+
+    productFlavors {
+        //hello {
+        //    versionName "helloworld"
+        //}    
+
+        //PackerTest {
+        //    versionName "1.0-packer-test"    
+        //}
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+}
+
+// https://code.google.com/p/android/issues/detail?id=171089
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:21.0.2'
+    compile 'com.android.support:appcompat-v7:21.0.2'
+    compile 'com.jakewharton:butterknife:6.0.0'
+    compile('com.mcxiaoke.next:core:1.2.0@aar') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+    compile('com.mcxiaoke.next:http:1.2.0@aar')
+    compile('com.mcxiaoke.next:ui:1.2.0@aar') {
+        exclude group: 'com.android.support', module: 'support-v4'
+    }
+}
