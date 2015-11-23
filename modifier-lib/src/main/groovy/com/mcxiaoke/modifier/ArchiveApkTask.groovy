@@ -47,11 +47,12 @@ class ArchiveApkTask extends DefaultTask {
             String apkName = buildApkName(theVariant, market)
             File tempFile = new File(tempDir, apkName);
             ZipUtils.copy(target, tempFile)
-            project.logger.info("${name}: new file ${tempFile.absolutePath}")
+            project.logger.info("${name}: modify apk file ${tempFile.absolutePath}")
             File finalFile = new File(theExtension.archiveOutput, apkName)
             ZipUtils.writeMarket(tempFile, market)
             ZipUtils.copy(tempFile, finalFile)
         }
+        ZipUtils.deleteDir(tempDir)
     }
 
     /**

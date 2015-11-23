@@ -96,11 +96,11 @@ dependencies {
     compile 'com.android.support:support-v4:21.0.2'
     compile 'com.android.support:appcompat-v7:21.0.2'
     compile 'com.jakewharton:butterknife:6.0.0'
-    compile('com.mcxiaoke.next:core:1.0.4@aar') {
+    compile('com.mcxiaoke.next:core:1.2.0@aar') {
         exclude group: 'com.android.support', module: 'support-v4'
     }
-    compile('com.mcxiaoke.next:http:1.0.8-SNAPSHOT@aar')
-    compile('com.mcxiaoke.next:ui:1.0.8-SNAPSHOT@aar') {
+    compile('com.mcxiaoke.next:http:1.2.0@aar')
+    compile('com.mcxiaoke.next:ui:1.2.0@aar') {
         exclude group: 'com.android.support', module: 'support-v4'
     }
 }

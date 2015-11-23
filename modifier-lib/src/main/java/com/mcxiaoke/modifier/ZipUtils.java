@@ -77,4 +77,18 @@ public final class ZipUtils {
         }
     }
 
+    public static void deleteDir(File dir) {
+        if (dir == null || !dir.exists()) {
+            return;
+        }
+        final File[] files = dir.listFiles();
+        if (files == null || files.length == 0) {
+            return;
+        }
+        for (File file : files) {
+            file.delete();
+        }
+        dir.delete();
+    }
+
 }
