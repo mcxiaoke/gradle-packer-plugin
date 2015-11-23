@@ -4,6 +4,7 @@ import org.gradle.api.Project
 
 // Android Packer Plugin Extension
 class AndroidModifierExtension {
+    static final String DEFAULT_NAME_TEMPLATE = '${appPkg}-${flavorName}-${buildType}-v${versionName}-${versionCode}'
 
     /**
      *  archive task output dir
@@ -32,6 +33,7 @@ class AndroidModifierExtension {
     AndroidModifierExtension(Project project) {
         archiveOutput = new File(project.rootProject.buildDir, "archives")
         tempOutput = new File(project.rootProject.buildDir, "temp")
+        archiveNameFormat = DEFAULT_NAME_TEMPLATE
     }
 
 

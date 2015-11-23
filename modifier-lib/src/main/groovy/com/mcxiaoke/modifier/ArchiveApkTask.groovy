@@ -18,7 +18,7 @@ class ArchiveApkTask extends DefaultTask {
     def theVariant
 
     @Input
-    def theExtension
+    AndroidModifierExtension theExtension
 
     @Input
     List<String> theMarkets
@@ -77,7 +77,7 @@ class ArchiveApkTask extends DefaultTask {
                 'buildTime'  : buildTime
         ]
 
-        def defaultTemplate = '${appPkg}-${flavorName}-${buildType}-v${versionName}-${versionCode}'
+        def defaultTemplate = AndroidModifierExtension.DEFAULT_NAME_TEMPLATE
         def engine = new SimpleTemplateEngine()
         def template = theExtension.archiveNameFormat == null ? defaultTemplate : theExtension.archiveNameFormat
         def fileName = engine.createTemplate(template).make(nameMap).toString();
