@@ -53,8 +53,23 @@ public final class ZipUtils {
         if (market == null || market.length() == 0) {
             return false;
         }
-        writeZipComment(file, "market=" + market);
+        writeZipComment(file, "market\t" + market);
         return true;
+    }
+
+    public static String readMarket(final File file) throws IOException {
+        final ZipFile zipFile = new ZipFile(file);
+        final String comment = zipFile.getComment();
+        zipFile.close();
+        final String[] kv = comment.split("\t");
+        if (kv.length != 2) {
+            return null;
+        }
+        return kv[1];
+    }
+
+    public static boolean verifyMarket(final File file, final String market) throws IOException {
+        return market.equals(readMarket(file));
     }
 
     public static void copy(File src, File dest) throws IOException {

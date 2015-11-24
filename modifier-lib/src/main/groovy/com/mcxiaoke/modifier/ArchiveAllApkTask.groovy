@@ -1,5 +1,6 @@
 package com.mcxiaoke.modifier
 
+import com.android.build.gradle.api.BaseVariant
 import groovy.text.SimpleTemplateEngine
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.Input
@@ -12,10 +13,10 @@ import java.text.SimpleDateFormat
  * Date: 15/11/23
  * Time: 14:40
  */
-class ArchiveApkTask extends DefaultTask {
+class ArchiveAllApkTask extends DefaultTask {
 
     @Input
-    def theVariant
+    BaseVariant theVariant
 
     @Input
     AndroidModifierExtension theExtension
@@ -23,7 +24,7 @@ class ArchiveApkTask extends DefaultTask {
     @Input
     List<String> theMarkets
 
-    ArchiveApkTask() {
+    ArchiveAllApkTask() {
         setDescription('modify original apk file and move to archive dir')
     }
 
@@ -35,7 +36,7 @@ class ArchiveApkTask extends DefaultTask {
     @TaskAction
     void modify() {
         def File target = theVariant.outputs[0].outputFile
-        project.logger.info("${name}: modify origin apk file: ${target.absolutePath}")
+        project.logger.info("${name}: target: ${target.absolutePath}")
         File tempDir = new File(project.rootProject.buildDir, "apkTemp")
         if (!tempDir.exists()) {
             tempDir.mkdirs()
@@ -45,12 +46,17 @@ class ArchiveApkTask extends DefaultTask {
         }
         for (String market : theMarkets) {
             String apkName = buildApkName(theVariant, market)
+            logger.info("${name}: ${apkName}")
             File tempFile = new File(tempDir, apkName);
-            ZipUtils.copy(target, tempFile)
-            project.logger.info("${name}: modify apk file ${tempFile.absolutePath}")
             File finalFile = new File(theExtension.archiveOutput, apkName)
+            ZipUtils.copy(target, tempFile)
+
             ZipUtils.writeMarket(tempFile, market)
-            ZipUtils.copy(tempFile, finalFile)
+            if (ZipUtils.verifyMarket(tempFile, market)) {
+                ZipUtils.copy(tempFile, finalFile);
+            } else {
+                logger.warn("${name}: failed to process file: ${apkName}");
+            }
         }
         ZipUtils.deleteDir(tempDir)
     }
@@ -61,11 +67,7 @@ class ArchiveApkTask extends DefaultTask {
      * @return final apk name
      */
     String buildApkName(variant, market) {
-        def dateFormat = new SimpleDateFormat('yyyy-MM-dd HH:mm:ss')
-        def buildTime = dateFormat.format(new Date())
-                .replaceAll('\\.', '-')
-                .replaceAll(':', '-')
-                .replaceAll(' ', '-')
+        def buildTime = new SimpleDateFormat('yyyyMMdd-HHmmss').format(new Date())
         def nameMap = [
                 'appName'    : project.name,
                 'projectName': project.rootProject.name,
@@ -82,7 +84,7 @@ class ArchiveApkTask extends DefaultTask {
         def template = theExtension.archiveNameFormat == null ? defaultTemplate : theExtension.archiveNameFormat
         def fileName = engine.createTemplate(template).make(nameMap).toString();
         def apkName = fileName + '.apk'
-        project.logger.info("buildApkName() final apkName: " + apkName)
+        logger.debug "buildApkName() final $apkName"
         return apkName
     }
 }

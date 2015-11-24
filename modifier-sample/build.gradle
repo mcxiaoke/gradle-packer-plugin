@@ -1,19 +1,21 @@
 buildscript {
     repositories {
         maven { url '/tmp/repo/' }
-        mavenCentral()
-        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+//        mavenCentral()
+        jcenter()
+//        maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:1.3.1'
         classpath 'com.mcxiaoke.gradle:modifier:0.9.0-SNAPSHOT'
     }
 }
 
 repositories {
-    mavenCentral()
-    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
+    jcenter()
+//    mavenCentral()
+//    maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
 }
 
 apply plugin: 'com.android.application'
