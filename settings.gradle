@@ -1,2 +1,2 @@
-include ':packer-lib'
-include ':modifier-lib'
+include ':packer-plugin'
+include ':modifier-plugin'
