@@ -1,6 +1,9 @@
 Android多渠道打包工具Gradle插件
 ================================
 
+## 特别说明
+
+### 渠道包数量很大（300个以上），对打包速度有要求的可以使用新版极速打包工具 [**Packer-Ng**](https://github.com/mcxiaoke/packer-ng-plugin)，5秒钟可以打1000个渠道包。
 
 ## 最新版本
 
@@ -270,13 +273,15 @@ dependencies {
 ## 关于作者
 
 #### 联系方式
+
 * Blog: <http://blog.mcxiaoke.com>
 * Github: <https://github.com/mcxiaoke>
-* Email: [mail@mcxiaoke.com](mailto:mail@mcxiaoke.com)
+* Email: [github@mcxiaoke.com](mailto:github@mcxiaoke.com)
 
 #### 开源项目
 
 * Next公共组件库: <https://github.com/mcxiaoke/Android-Next>
+* PackerNg极速打包工具: <https://github.com/mcxiaoke/packer-ng-plugin>
 * Gradle渠道打包: <https://github.com/mcxiaoke/gradle-packer-plugin>
 * EventBus实现xBus: <https://github.com/mcxiaoke/xBus>
 * Rx文档中文翻译: <https://github.com/mcxiaoke/RxDocs>
