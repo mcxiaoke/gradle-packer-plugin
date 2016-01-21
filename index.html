@@ -20,10 +20,15 @@
 
     <section class="main-content">
       <h1>
-<a id="android多渠道打包工具gradle插件" class="anchor" href="#android%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7gradle%E6%8F%92%E4%BB%B6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Android多渠道打包工具Gradle插件</h1>
+<a id="android多渠道打包工具gradle插件" class="anchor" href="#android%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7gradle%E6%8F%92%E4%BB%B6" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Android多渠道打包工具Gradle插件</h1>
 
 <h2>
-<a id="最新版本" class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>最新版本</h2>
+<a id="特别说明" class="anchor" href="#%E7%89%B9%E5%88%AB%E8%AF%B4%E6%98%8E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>特别说明</h2>
+
+<p>渠道包数量很大（300个以上），对打包速度有很高要求的可以使用新版极速打包工具 <a href="https://github.com/mcxiaoke/packer-ng-plugin"><strong>Packer-Ng</strong></a>，5秒钟可以打1000个渠道包，详细说明见README。</p>
+
+<h2>
+<a id="最新版本" class="anchor" href="#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>最新版本</h2>
 
 <p><a href="http://search.maven.org/#artifactdetails%7Ccom.mcxiaoke.gradle%7Cpacker%7C1.0.4%7Cjar"><img src="http://img.shields.io/badge/2015.05.18-com.mcxiaoke.gradle:packer:1.0.4-brightgreen.svg" alt="Maven Central"></a> </p>
 
@@ -36,7 +41,7 @@
 </ul>
 
 <h2>
-<a id="项目介绍" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span class="octicon octicon-link"></span></a>项目介绍</h2>
+<a id="项目介绍" class="anchor" href="#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>项目介绍</h2>
 
 <p><strong>gradle-packer-plugin</strong> 是Android多渠道打包工具Gradle插件，可方便的于自动化构建系统集成，通过很少的配置可实现如下功能 ：</p>
 
@@ -49,12 +54,12 @@
 <p><strong>gradle-packer-plugin</strong> 库路径： <code>com.mcxiaoke.gradle:packer:1.0.+</code> 简短名：<code>packer</code>，可以在项目的 <code>build.gradle</code> 中指定使用</p>
 
 <h2>
-<a id="使用方法" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用方法</h2>
+<a id="使用方法" class="anchor" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用方法</h2>
 
 <h4>
-<a id="修改项目根目录的-buildgradle-" class="anchor" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84-buildgradle-" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改项目根目录的 <code>build.gradle</code> ：</h4>
+<a id="修改项目根目录的-buildgradle-" class="anchor" href="#%E4%BF%AE%E6%94%B9%E9%A1%B9%E7%9B%AE%E6%A0%B9%E7%9B%AE%E5%BD%95%E7%9A%84-buildgradle-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>修改项目根目录的 <code>build.gradle</code> ：</h4>
 
-<div class="highlight highlight-groovy"><pre>
+<div class="highlight highlight-source-groovy"><pre>
 buildscript {
     repositories {
         mavenCentral()
@@ -66,13 +71,13 @@ buildscript {
 }  </pre></div>
 
 <h4>
-<a id="修改android项目的-buildgradle-" class="anchor" href="#%E4%BF%AE%E6%94%B9android%E9%A1%B9%E7%9B%AE%E7%9A%84-buildgradle-" aria-hidden="true"><span class="octicon octicon-link"></span></a>修改Android项目的 <code>build.gradle</code> :</h4>
+<a id="修改android项目的-buildgradle-" class="anchor" href="#%E4%BF%AE%E6%94%B9android%E9%A1%B9%E7%9B%AE%E7%9A%84-buildgradle-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>修改Android项目的 <code>build.gradle</code> :</h4>
 
-<div class="highlight highlight-groovy"><pre>
+<div class="highlight highlight-source-groovy"><pre>
 apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds">'</span>packer<span class="pl-pds">'</span></span>  </pre></div>
 
 <h3>
-<a id="多渠道打包" class="anchor" href="#%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>多渠道打包</h3>
+<a id="多渠道打包" class="anchor" href="#%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>多渠道打包</h3>
 
 <p>需要在命令行指定 -Pmarket=yourMarketFileName属性，market是你的渠道名列表文件名，market文件是基于<strong>项目根目录</strong>的 <code>相对路径</code> ，假设你的项目位于 <code>~/github/myapp</code> 你的market文件位于 <code>~/github/myapp/config/markets.txt</code> 那么参数应该是 <code>-Pmarket=config/markets.txt</code>，一般建议直接放在项目根目录，如果market文件参数错误或者文件不存在会抛出异常</p>
 
@@ -85,10 +90,10 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds"
 
 <p>渠道打包的命令行参数格式示例（在项目根目录执行）：  </p>
 
-<div class="highlight highlight-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease</pre></div>
+<div class="highlight highlight-source-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease</pre></div>
 
 <h3>
-<a id="windows系统" class="anchor" href="#windows%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span class="octicon octicon-link"></span></a>Windows系统</h3>
+<a id="windows系统" class="anchor" href="#windows%E7%B3%BB%E7%BB%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Windows系统</h3>
 
 <ul>
 <li>如果你是在windows系统下使用，需要下载 <a href="http://www.gradle.org/docs/current/userguide/gradle_wrapper.html">Gradle</a>，设置 <strong>GRADLE_HOME</strong> 环境变量，并且将Gradle的 <strong>bin</strong> 目录添加到环境变量PATH，然后将命令行中的 <code>./gradlew</code> 替换为 <code>gradle.bat</code>
@@ -106,7 +111,7 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds"
 </ul>
 
 <h3>
-<a id="文件名格式" class="anchor" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>文件名格式</h3>
+<a id="文件名格式" class="anchor" href="#%E6%96%87%E4%BB%B6%E5%90%8D%E6%A0%BC%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>文件名格式</h3>
 
 <p>可以使用 <code>archiveNameFormat</code> 自定义渠道打包输出的APK文件名格式，默认格式是 </p>
 
@@ -117,12 +122,12 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds"
 <p><code>com.your.company-Google_Player-release-2.1.15-20015.apk</code> </p>
 
 <h3>
-<a id="版本号自增" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号自增</h3>
+<a id="版本号自增" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>版本号自增</h3>
 
 <p>版本号自动会自动在在 <code>vesionName</code> 尾部增加 <code>.buildNumer</code> 该字段会自动增长，举例：如果App本来的版本号是 1.2.3，那么使用版本号自动后会是 <code>1.2.3.1</code> <code>1.2.3.2</code> ... <code>1.2.3.25</code> 末尾的build版本号会随构建次数自动增长。注意：如果在命令行使用 <code>-PbuildNum=123</code> 这种形式指定了build版本号，那么自增版本号不会生效</p>
 
 <h2>
-<a id="配置选项" class="anchor" href="#%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>配置选项</h2>
+<a id="配置选项" class="anchor" href="#%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>配置选项</h2>
 
 <ul>
 <li><p><strong>archiveOutput</strong>  指定渠道打包输出的APK存放目录，默认位于<code>${项目根目录}/build/archives</code>   </p></li>
@@ -154,10 +159,10 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds"
 </ul>
 
 <h2>
-<a id="使用示例" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>使用示例：</h2>
+<a id="使用示例" class="anchor" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用示例：</h2>
 
 <h3>
-<a id="多渠道打包-1" class="anchor" href="#%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>多渠道打包</h3>
+<a id="多渠道打包-1" class="anchor" href="#%E5%A4%9A%E6%B8%A0%E9%81%93%E6%89%93%E5%8C%85-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>多渠道打包</h3>
 
 <ul>
 <li>修改项目根目录的 <code>build.gradle</code> 在 <code>buildscript.dependencies</code> 部分加入 <code>classpath 'com.mcxiaoke.gradle:packer:1.0.0'</code><br>
@@ -168,7 +173,7 @@ apply <span class="pl-c1">plugin</span>: <span class="pl-s"><span class="pl-pds"
 </li>
 </ul>
 
-<div class="highlight highlight-groovy"><pre>
+<div class="highlight highlight-source-groovy"><pre>
 packer {
     <span class="pl-c">// 指定渠道打包输出目录</span>
     <span class="pl-c">// archiveOutput = file(new File(project.rootProject.buildDir.path, "archives"))</span>
@@ -184,7 +189,7 @@ packer {
 <li>假设渠道列表文件位于项目根目录，文件名为 <code>markets.txt</code> ，在项目根目录打开shell运行命令：</li>
 </ul>
 
-<div class="highlight highlight-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease
+<div class="highlight highlight-source-shell"><pre>./gradlew -Pmarket=markets.txt clean archiveApkRelease
 // Windows系统下替换为：
 gradle.bat -Pmarket=markets.txt clean archiveApkRelease
 // 或
@@ -193,7 +198,7 @@ gradlew.bat -Pmarket=markets.txt clean archiveApkRelease</pre></div>
 <p>如果没有错误，打包完成后你可以在 <code>${项目根目录}/build/archives/</code> 目录找到最终的渠道包。说明：渠道打包的Gradle Task名字是 <code>archiveApk${buildType}</code> buildType一般是release，也可以是你自己指定的beta或者someOtherType，使用时首字母需要大写，例如release的渠道包任务名是 <code>archiveApkRelease</code>，beta的渠道包任务名是 <code>archiveApkBeta</code>，其它的以此类推</p>
 
 <h3>
-<a id="版本号自增-1" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>版本号自增</h3>
+<a id="版本号自增-1" class="anchor" href="#%E7%89%88%E6%9C%AC%E5%8F%B7%E8%87%AA%E5%A2%9E-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>版本号自增</h3>
 
 <ul>
 <li>修改项目根目录的 <code>build.gradle</code> 在 <code>buildscript.dependencies</code> 部分加入 <code>classpath 'com.mcxiaoke.gradle:packer:1.0.0'</code><br>
@@ -203,7 +208,7 @@ gradlew.bat -Pmarket=markets.txt clean archiveApkRelease</pre></div>
 <li>修改Android项目的 <code>build.gradle</code> 加入如下配置项，buildNumberAuto是开关</li>
 </ul>
 
-<div class="highlight highlight-groovy"><pre>
+<div class="highlight highlight-source-groovy"><pre>
 packer {
     <span class="pl-c">// 指定是否使用build版本号自增</span>
     buildNumberAuto <span class="pl-k">=</span> <span class="pl-c1">true</span>
@@ -218,11 +223,11 @@ packer {
 </ul>
 
 <h2>
-<a id="完整示例" class="anchor" href="#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span class="octicon octicon-link"></span></a>完整示例：</h2>
+<a id="完整示例" class="anchor" href="#%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>完整示例：</h2>
 
 <p>项目的 <code>samples</code> 目录包含一个完整的项目示例，可以查看其中的 <code>build.gradle</code> </p>
 
-<div class="highlight highlight-groovy"><pre>
+<div class="highlight highlight-source-groovy"><pre>
 buildscript {
     repositories {
         mavenCentral()
@@ -302,7 +307,7 @@ dependencies {
 </pre></div>
 
 <h2>
-<a id="参与开发" class="anchor" href="#%E5%8F%82%E4%B8%8E%E5%BC%80%E5%8F%91" aria-hidden="true"><span class="octicon octicon-link"></span></a>参与开发</h2>
+<a id="参与开发" class="anchor" href="#%E5%8F%82%E4%B8%8E%E5%BC%80%E5%8F%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>参与开发</h2>
 
 <p><code>plugin</code> 目录是插件的源代码，用 <code>Groovy</code> 语言编写，项目 <code>sample</code> 目录是一个完整的Andoid项目示例，在项目根目录有几个脚本可以用于测试：</p>
 
@@ -316,32 +321,34 @@ dependencies {
 </ul>
 
 <h2>
-<a id="感谢" class="anchor" href="#%E6%84%9F%E8%B0%A2" aria-hidden="true"><span class="octicon octicon-link"></span></a>感谢</h2>
+<a id="感谢" class="anchor" href="#%E6%84%9F%E8%B0%A2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>感谢</h2>
 
 <p>本项目参考了公司内部Android项目使用的多渠道打包工具，最初作者是 <a href="https://github.com/googolmo">googolmo</a>，文件名模板自定义部分的代码修改自此项目 <a href="https://github.com/hamsterksu/android-appversion-gradle-plugin">android-appversion-gradle-plugin</a></p>
 
 <hr>
 
 <h2>
-<a id="关于作者" class="anchor" href="#%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85" aria-hidden="true"><span class="octicon octicon-link"></span></a>关于作者</h2>
+<a id="关于作者" class="anchor" href="#%E5%85%B3%E4%BA%8E%E4%BD%9C%E8%80%85" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>关于作者</h2>
 
 <h4>
-<a id="联系方式" class="anchor" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>联系方式</h4>
+<a id="联系方式" class="anchor" href="#%E8%81%94%E7%B3%BB%E6%96%B9%E5%BC%8F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>联系方式</h4>
 
 <ul>
 <li>Blog: <a href="http://blog.mcxiaoke.com">http://blog.mcxiaoke.com</a>
 </li>
 <li>Github: <a href="https://github.com/mcxiaoke">https://github.com/mcxiaoke</a>
 </li>
-<li>Email: <a href="mailto:mail@mcxiaoke.com">mail@mcxiaoke.com</a>
+<li>Email: <a href="mailto:github@mcxiaoke.com">github@mcxiaoke.com</a>
 </li>
 </ul>
 
 <h4>
-<a id="开源项目" class="anchor" href="#%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE" aria-hidden="true"><span class="octicon octicon-link"></span></a>开源项目</h4>
+<a id="开源项目" class="anchor" href="#%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>开源项目</h4>
 
 <ul>
 <li>Next公共组件库: <a href="https://github.com/mcxiaoke/Android-Next">https://github.com/mcxiaoke/Android-Next</a>
+</li>
+<li>PackerNg极速打包工具: <a href="https://github.com/mcxiaoke/packer-ng-plugin">https://github.com/mcxiaoke/packer-ng-plugin</a>
 </li>
 <li>Gradle渠道打包: <a href="https://github.com/mcxiaoke/gradle-packer-plugin">https://github.com/mcxiaoke/gradle-packer-plugin</a>
 </li>
@@ -362,7 +369,7 @@ dependencies {
 <hr>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <pre><code>Copyright 2014 - 2015 Xiaoke Zhang
 
