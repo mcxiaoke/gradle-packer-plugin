@@ -1,4 +1,4 @@
-Android多渠道打包工具Gradle插件
+Android渠道打包工具Gradle插件
 ================================
 
 ## 特别说明
@@ -280,6 +280,8 @@ dependencies {
 
 #### 开源项目
 
+* Awesome-Kotlin: <https://github.com/mcxiaoke/awesome-kotlin>
+* Kotlin-Koi: <https://github.com/mcxiaoke/kotlin-koi>
 * Next公共组件库: <https://github.com/mcxiaoke/Android-Next>
 * PackerNg极速打包工具: <https://github.com/mcxiaoke/packer-ng-plugin>
 * Gradle渠道打包: <https://github.com/mcxiaoke/gradle-packer-plugin>
@@ -294,7 +296,7 @@ dependencies {
 
 ## License
 
-    Copyright 2014 - 2015 Xiaoke Zhang
+    Copyright 2014 - 2016 Xiaoke Zhang
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
