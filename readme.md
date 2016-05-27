@@ -1,9 +1,7 @@
 Android渠道打包工具Gradle插件
 ================================
 
-## 特别说明
-
-渠道包数量很大（300个以上），对打包速度有很高要求的可以使用新版极速打包工具 [**Packer-Ng**](https://github.com/mcxiaoke/packer-ng-plugin)，5秒钟可以打1000个渠道包，详细说明见README。
+### 渠道包数量很多（如100个以上），对打包速度有要求的建议使用新版极速打包工具 [**Packer-Ng**](https://github.com/mcxiaoke/packer-ng-plugin)，1000个渠道包只需5秒。
 
 ## 最新版本
 
