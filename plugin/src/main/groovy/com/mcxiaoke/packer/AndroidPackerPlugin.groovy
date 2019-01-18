@@ -346,7 +346,16 @@ class AndroidPackerPlugin implements Plugin<Project> {
         def Task processResourcesTask = variant.outputs[0].processResources
         def processMetaTask = project.task("modify${variant.name.capitalize()}MetaData",
                 type: ModifyManifestTask) {
-            manifestFile = processManifestTask.manifestOutputFile
+            try {
+                // Android Gradle Plugin < 3.0.0
+                manifestFile = output.processManifest.manifestOutputFile
+            } catch (Exception ignored) {
+                // Android Gradle Plugin >= 3.0.0
+                manifestFile = new File(output.processManifest.manifestOutputDirectory, "AndroidManifest.xml")
+                if (!manifestFile.isFile()) {
+                    manifestFile = new File(new File(output.processManifest.manifestOutputDirectory, output.dirName),"AndroidManifest.xml")
+                }
+            }
             manifestMatcher = packerExt.manifestMatcher
             flavorName = variant.productFlavors[0].name
             dependsOn processManifestTask
